@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
+require('dotenv/config')
 
 app.use(cors())
 app.use(express.json()) ;
@@ -16,7 +17,7 @@ app.use('/user', authRoute)
 
 
 //Connect to database
-mongoose.connect("mongodb+srv://greg:npm766m5@notescluster.9regt.mongodb.net/notes?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DB_CONNECTION, {
   useNewUrlParser: true, 
 }, () => console.log("connected to databse") );
 

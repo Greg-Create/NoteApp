@@ -52,24 +52,26 @@ router.get('/:noteId', async (req,res) =>{
 router.delete('/:noteId', async (req,res) => {
 
         try{
-            const removedUser = await User.remove({_id: req.params.userId})
-            res.json(removedUser)
+            const removedNote =await User.deleteOne({_id: req.params.noteId})
+            res.json(removedNote)
+        }
+
+        catch(err){
+            res.json({message: err})
         }
 
         
 
-        catch(err){
-            res.json({message:err})
-        }
+      
 
 })
 
 //Update user
 
-router.patch('/:userId', async (req,res) => {
+router.patch('/:noteId', async (req,res) => {
     try{
-        const updatedUser = await User.updateOne({_id:req.params.userId}, 
-                                                {$set: {title: req.body.title}})
+        const updatedUser = await User.updateOne({_id:req.params.noteId}, 
+                                                {$set: {title: req.body.title, description: req.body.description} })
         res.json(updatedUser)
     }
 

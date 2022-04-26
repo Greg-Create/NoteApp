@@ -13,7 +13,7 @@ const authRoute = require('./routes/auth');
 
 
 //Route middleWares
-app.use('/user', authRoute)
+app.use('/note', authRoute)
 
 
 //Connect to database

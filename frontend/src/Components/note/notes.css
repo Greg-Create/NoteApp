@@ -1,0 +1,176 @@
+.Notes_container{
+    border-radius: 8px;
+   
+    background-color: #242526;
+   
+   box-shadow: 
+   
+   0 0 10px #c81ebe,
+   0 0 21px #b301c8,
+   0 0 42px #7100df;
+
+    display:flex;
+  
+    flex-direction: column;
+    align-items: center;
+   
+    width:  20rem;
+    height:10rem;
+    margin-bottom: 4rem;
+    
+}
+
+.clicked{
+
+  filter: blur(8px);
+  
+  animation: clicked 2s;
+  pointer-events: none;
+  z-index: -1;
+  
+ 
+}
+
+@keyframes clicked{
+  from {opacity: 1;}
+  to {opacity: 0.8; }
+}
+
+.animation-end{
+  animation: removed 1s;
+}
+
+@keyframes removed{
+  from {opacity: 0.8;}
+  to {opacity: 1; filter: blur(0px) }
+}
+
+
+.Notes_container h4{
+  color:white;
+   
+}
+
+.Notes_container h1{
+    color:white;
+     
+  }
+
+  .buttons{
+   position: absolute;
+    display: flex;
+    flex-direction: row;
+    left:0;
+    right:0;
+    justify-content: center;
+    margin-top: -14rem;
+    
+    align-items: center;
+    z-index: 10;
+    
+    
+    
+    
+    
+    
+    
+  }
+
+  
+
+  
+
+  .delete_Note{
+    background-color: #3a3b3c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    width:4rem;
+    height:4rem;
+    outline: none;
+    border-style: none;
+    font-size: 6px;
+    font-weight: bold;
+    animation: fadein 2s;
+    color: #c81ebe;
+    text-shadow: 
+    0 0 10px #c81ebe,
+    0 0 21px #b301c8,
+    0 0 42px #7100df;;
+
+    border-color:#b301c8 ;
+   
+    box-shadow: 0 0 10px #c81ebe,
+    0 0 21px #b301c8,
+    0 0 42px #7100df;;;
+    
+    margin:3rem
+    
+    
+    
+  }
+
+  .update_note:hover{
+    filter: brightness(120%);
+  }
+
+  .delete_Note:hover{
+    filter: brightness(120%);
+  }
+
+
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+  .icon{
+    height: 1.7rem;
+    width: 1.7rem;
+    
+  }
+
+
+  .update_note{
+    background-color: #3a3b3c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 50%;
+    width:4rem;
+    height:4rem;
+    outline: none;
+    border-style: none;
+    font-size: 6px;
+    font-weight: bold;
+    animation: fadein 2s;
+    color: #c81ebe;
+    text-shadow: 
+    0 0 10px #c81ebe,
+    0 0 21px #b301c8,
+    0 0 42px #7100df;;
+
+    border-color:#b301c8 ;
+   
+    box-shadow: 0 0 10px #c81ebe,
+    0 0 21px #b301c8,
+    0 0 42px #7100df;;;
+    margin:3rem
+    
+
+    
+   
+  }
+
+  .note-deleted{
+    animation: deleted 1s;
+  }
+
+  @keyframes deleted {
+    from {opacity:1; width:20rem; height:10rem; filter: blur(8px)}
+    to  { opacity: 0; width:0; height:0; filter:blur(0px)}
+  }

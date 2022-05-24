@@ -1,0 +1,24 @@
+
+
+.noteapp_header__container{
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.header_container_heading {
+    text-shadow:
+    0 0 7px #2012eb,
+    0 0 10px #c81ebe,
+    0 0 21px #b301c8,
+    0 0 42px #7100df,
+    0 0 82px #7100df,
+    0 0 92px #2012eb,
+    0 0 102px #2012eb,
+    0 0 151px #2012eb;  
+   
+    color:#E4E6EB;
+    user-select: none;
+}

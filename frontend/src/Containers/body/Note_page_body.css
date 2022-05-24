@@ -1,0 +1,76 @@
+.notes_container__button{
+   
+    border-radius: 10px;
+    background-color: white;
+    width:6rem;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+
+}
+
+.notes_container__button h6{
+    color:black;
+}
+
+.outer-border{
+    background-image: linear-gradient(to right top, #c81ebe, #b301c8, #9800d3, #7100df, #2012eb);
+    height:3.2rem;
+    width:6.1rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
+}
+
+.notes_container__button:hover{
+   background-color: #3a3B3c;
+}
+
+
+.plus{
+    width:20px;
+    height:20px;
+    transition: transform .7s ease-in-out;
+    color:black;
+    
+}
+
+
+
+h2{
+
+    color: white;
+    text-shadow:
+    0 0 7px #c81ebe,
+    0 0 10px #c81ebe,
+    0 0 21px #b301c8,
+    0 0 42px #9800d3,
+    0 0 82px #9800d3,
+    0 0 92px #7100df,
+    0 0 102px #2012eb,
+    0 0 151px #2012eb;
+}
+
+.notes_container__button h6{
+    text-align: center;
+    font-size:8px;
+}
+
+
+.noteapp_notes__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

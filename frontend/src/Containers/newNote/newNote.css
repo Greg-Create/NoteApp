@@ -1,0 +1,147 @@
+.noteapp_NewNote__container{
+    position:fixed;
+    width: 100%;
+    top:0;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.noteapp_NewNote__content{
+    position: relative;
+    padding: 20px 20px;
+    width: 40%;
+    height: 30rem;
+   z-index:0;
+    background-color: #242526;
+    border-radius: 10px;
+    top:0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.noteapp_NewNote__content h1{
+    text-align: center;
+    text-shadow:
+    0 0 7px #c81ebe,
+    0 0 10px #c81ebe,
+    0 0 21px #b301c8,
+    0 0 42px #9800d3,
+    0 0 82px #9800d3,
+    0 0 92px #7100df,
+    0 0 102px #2012eb,
+    0 0 151px #2012eb;
+
+    color:white;
+}
+
+
+.noteapp_NewNote__content_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+
+}
+
+
+.noteapp_NewNote__content_description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+
+.noteapp_NewNote__content_title label{
+    margin-bottom: 1rem;
+    font-size: 20px;
+    color:#e4e6eb;
+}
+
+.noteapp_NewNote__content_title input{
+    border-radius: 5px;
+    outline: none;
+    height:2rem;
+    text-align: center;
+    border: 2px solid white;
+    background-color: #242526;
+    color:white;
+    
+}
+
+
+.noteapp_NewNote__content_description label{
+    margin-bottom: 1rem;
+    font-size: 20px;
+    color:#e4e6eb;
+
+}
+
+
+.noteapp_NewNote__content_description  input{
+    border-radius: 5px;
+    outline: none;
+    height:6rem;
+    width:20rem;
+    text-align: center; 
+    border: 2px solid white;
+    background-color: #242526;
+    color:white;
+}
+
+.noteapp_NewNote__content_button{
+    margin-top: 3rem;
+    width:10rem;
+    height: 4rem;
+    text-align: center;
+    border-radius: 5px;
+    background-color: white;
+    
+    
+}
+
+.noteapp_NewNote__content_button:hover{
+    opacity: 0.5;
+}
+
+.close{
+    position: relative;
+    left:16rem;
+    height:2rem;
+    width: 2rem;
+    color:white
+}
+
+.close:hover{
+    opacity: 0.6;
+}
+
+
+
+@media screen and (max-width: 1250px) {
+    .noteapp_NewNote__content_description  input{
+        width:14rem;
+    }
+
+    .close{
+        left:10rem;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .noteapp_NewNote__content_description  input{
+        width:12rem;
+    }
+
+    .close{
+        left:8rem;
+    }
+}

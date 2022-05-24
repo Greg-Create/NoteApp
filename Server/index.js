@@ -9,11 +9,13 @@ app.use(express.json()) ;
 
 
 //Import Routes
-const authRoute = require('./routes/auth');
+const noteRoute = require('./routes/note_rout');
+const authRoute = require('./routes/auth')
 
 
 //Route middleWares
-app.use('/note', authRoute)
+app.use('/note', noteRoute)
+app.use('/user', authRoute)
 
 
 //Connect to database

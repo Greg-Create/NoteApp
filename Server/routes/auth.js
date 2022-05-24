@@ -1,85 +1,78 @@
-const router = require("express").Router() 
+const router = require('express').Router();
 const User = require("../models/Users")
+const {registerValidation, loginValidation} = require('../validation')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 
-//Get back all the users
-router.get('/notes', async (req,res) =>{
-    try {
-        const users =await User.find()
-        res.json(users)
-    }
-
-    catch(err){
-        res.json({message:err})
-    }
-})
 
 
-//Create a new user
-router.post('/createnote', async (req,res) =>{
-    
+
+
+
+router.post('/register', async (req, res) => {
+   
+   //Validate user data before creating new user
+
+   const {error} = registerValidation(req.body)
+   if (error) return res.status(400).send(error.details[0].message) 
+
+
+   // Check if user in database
+
+   const emailExists = await User.findOne({email:req.body.email})
+   if( emailExists) return res.status(400).send('Email already exists')
+  
+  
+   //Hash password (for security)
+
+   const salt = await bcrypt.genSalt(10)
+   const hashedPassword = await bcrypt.hash(req.body.password, salt)
+  
+  
+   //user registration request
     const user = new User({
-        title: req.body.title,
-        description: req.body.description,
-       
+        name: req.body.name,
+        email:req.body.email,
+        password:hashedPassword
     });
-    try{
-            const savedUser = await user.save()
-            res.send(savedUser)
-    }catch(err){
-        res.status(400).send(err)
-    }
-
-})
-
-
-//Specific user
-
-router.get('/:noteId', async (req,res) =>{
-   try{const user = await User.findById(req.params.userId)
-   res.json(user)
-   }
-
-   catch(err){
-       res.json({message: err})
-   }
-})
-
-
-
-//Delete user
-
-router.delete('/:noteId', async (req,res) => {
-
-        try{
-            const removedNote =await User.deleteOne({_id: req.params.noteId})
-            res.json(removedNote)
-        }
-
-        catch(err){
-            res.json({message: err})
-        }
-
-        
-
-      
-
-})
-
-//Update user
-
-router.patch('/:noteId', async (req,res) => {
-    try{
-        const updatedUser = await User.updateOne({_id:req.params.noteId}, 
-                                                {$set: {title: req.body.title, description: req.body.description} })
-        res.json(updatedUser)
+    try {
+        const savedUser = await user.save()
+        res.send(savedUser)
     }
 
     catch(err){
-        res.json({message:err})
-    }
+        res.send(err)
+    } 
+}) 
+
+
+
+//Login
+
+
+router.post('/login', async (req,res) => {
+
+
+    const {error} = loginValidation(req.body);
+    if (error) return res.status(400).send(error.details[0].message)
+
+//Check if email  is in database
+    const user = await User.findOne({email:req.body.email})
+   if( !user) return res.status(400).send('Email doesnt exists')
+
+//Check if password is correct
+
+    const validPass = await bcrypt.compare(req.body.password, user.password)
+    if (!validPass) return res.status(400).send('incorrect password')
+
+
+//Create and assign an token
+
+const token = jwt.sign({_id: user._id}, process.env.TOKENSECRET)
+
+
+    res.header('auth-token', token).send(token)
 })
- 
 
-
-module.exports = router;
+module.exports= router
